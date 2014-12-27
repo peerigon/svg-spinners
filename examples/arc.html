@@ -58,9 +58,6 @@
             fill: none;
         }
     </style>
-    <script>
-        var module = {};
-    </script>
     <script src="../arc.js" type="text/javascript"></script>
 </head>
 <body>
@@ -90,10 +87,9 @@
         </tr>
     </table>
     <script>
-        var Spinner = module.exports;
-        var spinner1 = new Spinner("spinner-1");
-        var spinner2 = new Spinner("spinner-2");
-        var spinner3 = new Spinner("spinner-3");
+        var spinner1 = new ArcSpinner("spinner-1");
+        var spinner2 = new ArcSpinner("spinner-2");
+        var spinner3 = new ArcSpinner("spinner-3");
 
         spinner1.start();
         spinner2.start({

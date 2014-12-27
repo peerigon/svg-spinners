@@ -3,14 +3,15 @@
 function ArcSpinner(namespace) {
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    var size = 100;
+    var size = 100; // These sizes are just internal. Usually you'd inject
+                    // the spinner into a container and modify that dimensions.
     var padding = 50;
     var outerSize = size + padding * 2;
     var offset = size / 2 + padding;
 
     this._render = this._render.bind(this);
 
-    namespace = namespace || "spinner";
+    namespace = namespace || "arc-spinner";
 
     svg.setAttribute("class", namespace);
     svg.setAttribute("viewBox", "0 0 " + outerSize + " " + outerSize);
@@ -73,7 +74,7 @@ ArcSpinner.prototype._render = function (timestamp) {
     var t;
     var x;
     var y;
-    var ccw; // counter clockwise
+    var ccw; // counter-clockwise
 
     if (start) {
         t = (timestamp - start) / 1000;
@@ -95,6 +96,8 @@ ArcSpinner.prototype._render = function (timestamp) {
         d = "M 0 0";
         firstCommand = "L";
     }
+    // Fix for missing precision
+    // @see http://stackoverflow.com/questions/27659518/precision-of-svg-coordinates
     if (nFraction < 0.00001 || nFraction > 0.99999) {
         if (isEvenTurn) {
             d += firstCommand + " 0 -" + r + " " +
@@ -128,4 +131,6 @@ ArcSpinner.prototype._render = function (timestamp) {
     this._callbackId = window.requestAnimationFrame(this._render);
 };
 
-module.exports = ArcSpinner;
+if (typeof module === "object") {
+    module.exports = ArcSpinner;
+}
