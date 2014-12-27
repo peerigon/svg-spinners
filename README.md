@@ -59,7 +59,7 @@ A reference to the SVGElement. You should inject it into a container which gives
 Starts the animation. Valid options are:
 
 - `fill` (default `false`)<br>
-Whether the arc should be filled with color or not. This options does **not** apply the necessary styles. It just modifies the drawing commands so the shape can be filled with the css `fill`-property.
+Whether the arc should be filled with color or not. This option does **not** apply the necessary styles. It just modifies the drawing commands so the shape can be filled with the css `fill`-property.
 
 - `speed` (default `1`)<br>
 In turns per seconds.
