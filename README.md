@@ -15,7 +15,7 @@ ArcSpinner
 ----------
 by [jhnns](https://github.com/jhnns/)
 
-![ArcSpinner](https://cloud.githubusercontent.com/assets/781746/5560283/6d2a0608-8d7d-11e4-88c4-c6129ff974b0.gif)
+![ArcSpinner](examples/arc.gif)
 
 ### Example
 
