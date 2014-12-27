@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <style>
+        body {
+            margin: 4rem;
+            font-family: sans-serif;
+            color: slategrey;
+            text-align: center;
+        }
+
+        div {
+            margin: 0 auto;
+        }
+
+        tr {
+            vertical-align: top;
+        }
+
+        td {
+            padding: 0 2rem;
+        }
+
+        #spinner-1 {
+            width: 5rem;
+            height: 5rem;
+        }
+
+        #spinner-2 {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        #spinner-3 {
+            width: 5rem;
+            height: 5rem;
+        }
+
+        .spinner-1-path {
+            stroke-width: 10px;
+            stroke-linecap: round;
+            stroke: rgb(255, 27, 86);
+            shape-rendering: optimizeSpeed;
+            fill: none;
+        }
+
+        .spinner-2-path {
+            shape-rendering: optimizeSpeed;
+            fill: rgb(255, 27, 86);
+        }
+
+        .spinner-3-path {
+            stroke-width: 5px;
+            stroke: rgb(44, 192, 255);
+            shape-rendering: optimizeSpeed;
+            fill: none;
+        }
+    </style>
+    <script>
+        var module = {};
+    </script>
+    <script src="../arc.js" type="text/javascript"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                fill: false, ease: true, speed: 1<br>
+                <small>default</small>
+            </td>
+            <td>
+                fill: true, ease: true, speed: 0.5
+            </td>
+            <td>
+                fill: false, ease: false, speed: 2
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="spinner-1"></div>
+            </td>
+            <td>
+                <div id="spinner-2"></div>
+            </td>
+            <td>
+                <div id="spinner-3"></div>
+            </td>
+        </tr>
+    </table>
+    <script>
+        var Spinner = module.exports;
+        var spinner1 = new Spinner("spinner-1");
+        var spinner2 = new Spinner("spinner-2");
+        var spinner3 = new Spinner("spinner-3");
+
+        spinner1.start();
+        spinner2.start({
+            fill: true,
+            speed: 0.5
+        });
+        spinner3.start({
+            speed: 2,
+            ease: false
+        });
+
+        document.getElementById("spinner-1").appendChild(spinner1.node);
+        document.getElementById("spinner-2").appendChild(spinner2.node);
+        document.getElementById("spinner-3").appendChild(spinner3.node);
+    </script>
+</body>
+</html>
